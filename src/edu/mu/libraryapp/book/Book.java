@@ -1,6 +1,6 @@
 package edu.mu.libraryapp.book;
 
-public class LibraryBook {
+public class Book {
 	private String title;
 	private String author;
 	private String ISBN;
@@ -9,7 +9,7 @@ public class LibraryBook {
 	/**
 	 * Added a Default constructor "LibraryBook" that initializes title, author, and ISBN to "Unknown" and price to 0.0
   	*/
-	public LibraryBook() 
+	public Book() 
 	{
 		this.title = "Unknown";
 		this.author = "Unknown";
@@ -26,7 +26,7 @@ public class LibraryBook {
 	* @param ISBN - The ISBN number of the book.
 	* @param price - The price of the book.
 	*/
-	public LibraryBook(String title, String author, String ISBN, double price) 
+	public Book(String title, String author, String ISBN, double price) 
 	{
 		this.title = title;
 		this.author = author;
@@ -38,12 +38,8 @@ public class LibraryBook {
 	 * This is a copy constructor. Giving the details of the argument book to the newly created book
 	 * @param book - The book you want to copy the information to. 
 	 * */
-	public LibraryBook(LibraryBook book) {
-		this.title = book.getTitle();
-		this.author = book.getAuthor();
-		this.ISBN = book.getISBN();
-		this.price = book.getPrice();
-		
+	public Book(Book book) {
+	    this(book.title, book.author, book.ISBN, book.price);
 	}
 
 	public String getTitle() {
@@ -88,25 +84,20 @@ public class LibraryBook {
 
 	@Override
 	public String toString() {
-		return "LibraryBook [title=" + title + ", author=" + author + ", ISBN=" + ISBN + ", price=" + price + "]";
+	    return title + " by " + author + " (ISBN: " + ISBN + ", $" + price + ")";
 	}
+
 	
 	/**
 	 * Returns true if the argument book shares the same ISBN number
 	 * @param - Book to compare to
 	 * */
+	@Override
 	public boolean equals(Object obj) {
-		if (obj == null) {
-			return false;
-		}
-		
-		LibraryBook other = (LibraryBook)obj;
-		
-		System.out.println("HERE: " + other.getISBN());
-		
-		return (this.ISBN.equals(other.getISBN()));
+	    if (!(obj instanceof Book)) {
+	        return false;
+	    }
+	    Book otherBook = (Book) obj;
+	    return this.ISBN.equals(otherBook.ISBN);
 	}
-	
-	
-	
 }
