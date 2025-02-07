@@ -7,7 +7,7 @@ public class Library {
 	private LibraryBook[] bookList; 
 	private int numOfBooks;
 	
-	/*
+	/**
 	 * Constructor. Creates a Library that can hold up to 5 books
 	 * */
 	public Library() {
@@ -21,9 +21,11 @@ public class Library {
 			// The Library is full of books
 			return false; 
 		}
-		// Need to search for first avalible opening
+		// Need to search for first available opening
 		for (int i = 0; i < 5; i ++) {
-			if ()
+			if (bookList[i].getISBN() == "Unknown") {
+				bookList[i] = book;
+			}
 		}
 		
 		
@@ -38,6 +40,8 @@ public class Library {
 	
 	public LibraryBook searchByISBN(String ISBN) {
 		// ADD IMPLEMENTATION
+		LibraryBook bb = new LibraryBook();
+		return bb;
 	}
 	
 	public void displayBooks() {
