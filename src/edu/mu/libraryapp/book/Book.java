@@ -16,8 +16,7 @@ public class Book {
 		this.ISBN = "Unknown";
 		this.price = 0.0;
 	}
-		
-		
+	
 	/**
 	* Created a parameterized constructor that allows the user to set custom values
 	* to the parameters.
@@ -71,7 +70,6 @@ public class Book {
 		this.ISBN = iSBN;
 	}
 
-
 	public double getPrice() {
 		return price;
 	}
@@ -81,13 +79,11 @@ public class Book {
 		this.price = price;
 	}
 
-
 	@Override
 	public String toString() {
-	    return title + " by " + author + " (ISBN: " + ISBN + ", $" + price + ")";
+	    return (title + " by " + author + " (ISBN: " + ISBN + ", $" + price + ")");
 	}
 
-	
 	/**
 	 * Returns true if the argument book shares the same ISBN number
 	 * @param - Book to compare to

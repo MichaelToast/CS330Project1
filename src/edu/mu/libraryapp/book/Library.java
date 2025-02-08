@@ -1,22 +1,19 @@
 package edu.mu.libraryapp.book;
 
 public class Library {
-	// NOTE: We might have to have the 5 be added in the constructors
-	private Book[] bookList; 
+	private Book[] bookList = new Book[5]; 
 	private int numOfBooks;
 	
 	/**
 	 * Constructor. Creates a Library that can hold up to 5 books
 	 * */
 	public Library() {
-		this.bookList = new Book[5];
-		// NOTE: We might have to check that all of the books are create in a good state
 		this.numOfBooks = 0;
 	} 
 	
 	/**
-	 * Adds a book to the library if it's not full
-	 * @param book - Book in library
+	 * Adds a book to the first available space in the library if its not full
+	 * @param book - Book to be added to library
 	 * @return false if not able to be added, true if book gets added
 	 */
 	public boolean addBook(Book book) {
@@ -32,7 +29,8 @@ public class Library {
 				return true;
 			}
 		}
-		return false; // Not able to add/library is full
+		// Not able to add/library is full
+		return false; 
 	}
 	
 	/**
@@ -46,6 +44,7 @@ public class Library {
 		}
 		for(int i = 0; i < numOfBooks; i++) {
 			if(bookList[i] != null && bookList[i].equals(book)) {
+				// Found the book by the matching ISBN number
 				for(int j = i; j < numOfBooks - 1; j++) {
 					bookList[j] = bookList[j+1];
 				}
@@ -64,7 +63,7 @@ public class Library {
 	 */
 	public Book searchByISBN(String ISBN) {
 		for(int i = 0; i < numOfBooks; i++) {
-			if(bookList[i] != null && bookList[i].getISBN().equals(ISBN)) {
+			if(bookList[i] != null && (bookList[i].getISBN()).equals(ISBN)) {
 				return bookList[i];
 			}
 		}

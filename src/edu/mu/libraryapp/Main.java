@@ -1,14 +1,14 @@
 package edu.mu.libraryapp;
 
 import edu.mu.libraryapp.book.Book;
-import edu.mu.libraryapp.book.Library
+import edu.mu.libraryapp.book.Library;
 
 public class Main {
     public static void main(String[] args) {
         // Create Library object
         Library library = new Library();
         System.out.println("Library created.\n");
-
+        
         //  Add 3 books to the library
         Book bookOne = new Book("Clean Code", "Robert C. Martin", "978-0135166307", 40.99);
         Book bookTwo = new Book("Design Patterns", "Erich Gamma", "978-0201633610", 50.99);
@@ -19,6 +19,12 @@ public class Main {
         library.addBook(bookTwo);
         library.addBook(bookThree);
         System.out.println("Books added successfully.\n");
+        
+        System.out.println("\n\n\n\n\n");
+        Book bookFour = new Book("1984", "memem", "978-0135957059", 5.89);
+        library.addBook(bookFour);
+        System.out.println("\n\n\n\n\n");
+        
 
         // Search for a book by ISBN
         String searchISBN = "978-0135166307";
@@ -51,7 +57,7 @@ public class Main {
         library.displayBooks();
         System.out.println();
 
-        // Try to remove a non-existent book and system can't
+        // Trying to remove a non-existent book and system can't
         Book noBook = new Book("Not A Book", "Not an Author", "000-0000000000", 0.0);
         boolean removedNonExistent = library.removeBook(noBook);
         if (removedNonExistent) {
